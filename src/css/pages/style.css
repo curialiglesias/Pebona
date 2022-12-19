@@ -1,0 +1,551 @@
+/* Autor: Curial Iglesias Clua */
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
+
+/* Faig un reset */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0px 5px 5px 5px;
+    font-family: "Karla";
+}
+
+/* Creo variables amb els colors de l'enunciat */
+:root{
+    --color-negre: #000000;
+    --color-vermell: #d2201c;
+    --color-blanc: #f6f6f6;
+    --color-groc: #f4d88e;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color: inherit;
+}
+
+a:hover{
+    color: var(--color-vermell);
+}
+
+#lupa:hover{
+    color: var(--color-negre);
+}
+
+.red-text{
+    color: var(--color-vermell);
+}
+
+/* HEADER */
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 30px;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%),
+    0 0 2px rgb(0 0 0 / 7%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.808);
+    transition: opacity 1s ease-in-out;
+}
+
+.header-container:hover{
+    background-color: white;
+}
+
+.header-esquerra ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.header-esquerra ul li:nth-child(1), .header-esquerra ul li:nth-child(2), .header-esquerra ul li:nth-child(4){
+    display: flex;
+    align-items: center;
+}
+
+.header-esquerra ul li span{
+    font-size: 1.4em;
+}
+
+.header-dreta{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-right: 50px;
+}
+
+.header-dreta div{
+    display: flex;
+    align-items: center;
+}
+
+.header-dreta div:nth-child(2) {
+    gap: 10px;
+}
+
+#search{
+    border: none;
+    background: none;
+}
+
+.header-dreta div:nth-child(2){
+    position: relative;
+}
+
+.header-dreta div:nth-child(2) div{
+    position: absolute;
+    background-color: var(--color-vermell);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.6em;
+    padding: 0.1%;
+    width: 1em;
+    justify-content: center;
+    align-items: center;
+    top: 1%;
+    right: 60%;
+}
+
+/* Adapta el flexbox del container del header a un flexbox en columna */
+@media(max-width: 1080px) {
+    .header-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* Adapta el flexbox del container del header esquerra a un flexbox en columna */
+@media(max-width: 620px) {
+    .header-esquerra ul{
+        display: block;
+        align-items: center;    
+    }
+    .header-container{
+        position: relative;
+    }
+}
+
+/* ARTICLE 1 */
+.main-container img{
+    width: 100%;
+}
+
+/* Els seguents IDs i Classes estructuren un grid per ordenar els components del article 1 */
+.main-container{
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    grid-template-areas: 
+    "superior-esquerra superior-dret"
+    "inferior-esquerra inferior-dret";
+}
+
+#image1{
+    grid-area: superior-esquerra;
+    position: relative;
+}
+
+.subcontainer1{
+    grid-area: superior-dret;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+    grid-template-areas: 
+    "lateral superior"
+    "lateral inferior";
+} 
+
+#image2{
+    grid-area: lateral;
+}
+
+#image3{
+    grid-area: superior;
+}
+
+#image4{
+    grid-area: inferior;
+}
+
+.subcontainer2 {
+    grid-area: inferior-esquerra;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+    grid-template-areas: 
+    "superior lateral"
+    "inferior lateral";
+} 
+
+#image5{
+    grid-area: superior;
+}
+
+#image6{
+    grid-area: inferior;
+}
+
+#image7{
+    grid-area: lateral;
+}
+
+#image8{
+    grid-area: inferior-dret;
+}
+
+/* Les seguents IDs afegeixen el text necessari a la primera imatge gran del article 1 */
+#text-image1{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 30%;
+}
+
+#text-image1 div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+#text-image1 div:first-child p:first-child{
+    color: var(--color-blanc);
+    background-color: var(--color-vermell);
+    font-size: 0.8vw;
+    padding: 1%;
+}
+
+#text-image1 div:first-child p:nth-child(2){
+    font-size: 1.3vw;
+    font-weight: bold;
+}
+
+#text-image1 div:nth-child(2){
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 2%;
+}
+
+#text-image1 div:nth-child(3){
+    font-size: 1vw;
+    font-weight: bold;
+    padding: 2%;
+}
+
+#text-image1 ul{
+    display: flex;
+    list-style: none;
+    gap: 2%;
+    margin-top: 10%;
+    justify-content: center;
+}
+
+#text-image1 ul li{
+    background-color: var(--color-vermell);
+    border-radius: 50%;
+    width: 1vw;
+    height: 1vw;
+}
+
+#text-image1 ul li:nth-child(2){
+    background-color: rgb(196, 196, 196);
+}
+
+#text-image1 ul li:nth-child(3){
+    background-color: rgb(196, 196, 196);
+}
+
+/* Adapta el padding perque quedi bé el header */
+@media(max-width: 1080px) {
+    .main-container{
+        padding-top: 125px;
+    }  
+}
+
+/* Adapta el grid del container del article 1 a un flexbox en columna */
+@media(max-width: 1000px) {
+    .main-container{
+        display: flex;
+        flex-direction: column;
+    } 
+    
+    #text-image1 div:first-child p:first-child{
+        font-size: 1.8vw;
+    }
+    
+    #text-image1 div:first-child p:nth-child(2){
+        font-size: 3vw;
+    }
+    
+    #text-image1 div:nth-child(2){
+        font-size: 7vw;
+    }
+    
+    #text-image1 div:nth-child(3){
+        font-size: 2vw;
+    }
+
+    #text-image1 ul li{
+        width: 2vw;
+        height: 2vw;
+    }
+}
+
+/* Adapta el padding perque quedi bé el header */
+@media(max-width: 620px) {
+    .main-container{
+        padding-top: 10px;
+    }  
+}
+
+/* ARTICLE 2 */
+h1{
+    font-size: 2em;
+    margin-top: 5%;
+}
+
+#titol-secundari{
+    text-align: center;
+    margin: 20px;
+}
+
+h1::after{
+    content: url(https://cdn.shopify.com/s/files/1/0049/9043/5439/t/6/assets/title.png);
+    display: block;
+}
+
+.container-inferior{
+    display: flex;
+    gap: 1%;
+    width: 100%;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%),
+    0 0 2px rgb(0 0 0 / 7%);
+}
+
+.container-inferior img{
+    width: 100%;
+}
+
+.container-inferior section div div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    margin: 0;
+}
+
+.container-inferior section div div:nth-child(1) div span{
+    color: var(--color-groc);
+    font-size: 1em;
+    margin: -2px;
+}
+
+/* Classe que fa la transició del subrallat vermell */
+.underline{
+    display: inline-block;
+    position: relative;
+    width: fit-content;
+    font-size: 0.9vw;
+}
+
+.underline:hover{
+    color: var(--color-vermell);
+}
+
+.underline::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-vermell);
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+}
+
+.underline:hover::before {
+    transform: scaleX(1);
+}
+
+/* Classe que estilitza els diversos preus del productes */
+.preus{
+    display: flex;
+}
+
+.preus p{
+    display: flex;
+    margin-right: 4%;
+    align-items: center;
+}
+
+.preus p:nth-child(2){
+    font-size: 1.2em;
+}
+
+.container-inferior section{
+    position: relative;
+    padding: 1%;
+    box-shadow: none;
+    transition: all 300ms ease-in-out;
+}
+
+.container-inferior section:hover{
+    box-shadow: 1px 1px 10px 10px var(--color-blanc);
+}
+
+/* Classe que estilitza el descompte en vermell que apareix a varies imatges */
+.descompte{
+    position: absolute;
+    top: 6%;
+    left: 10%;
+    display: inline-block;
+    border-radius: 10%;
+    background-color: var(--color-vermell);
+    color: white;
+    padding: 2% 8% 2% 8%;
+    font-size: 0.8vw;
+}
+
+/* Classe que mostre diverses icones sobre les imatges del article 2 */
+.ventana{
+    display: flex;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 5%;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.ventana:hover{
+    opacity: 1;
+}
+
+/* Adapta el flex del container del article 2 a un flexbox en columna */
+@media(max-width: 1000px) {
+    .container-inferior{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .descompte{
+        top: 6%;
+        left: 10%;
+        padding: 2% 8% 2% 8%;
+        font-size: 4vw;
+    }
+    .underline{
+        font-size: 2vw;
+    }
+    .ventana{
+        height: 10%;    
+    }
+}
+
+/* FOOTER */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+    margin-bottom: 50px;
+}
+
+.footer-mig{
+    display: flex;
+    align-items: center;
+}
+
+.footer-dreta{
+    display: flex;
+    align-items: center;
+}
+
+h2{
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+/* ID que selecciona tant el camp d'escriure com el botó de l'apartat de sign up */
+#suscripcio{
+    display: flex;
+    align-items: center;
+    background: var(--color-blanc);
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+}
+
+#email{
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+
+#signup{
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    background: var(--color-blanc);
+    transition: all 300ms ease-in-out; 
+}
+
+#signup:hover{
+    border: none;
+    background: var(--color-vermell);
+    color: var(--color-blanc);
+}
+
+/* Adapta el flex del container del footer a un flexbox en columna */
+@media(max-width: 1000px) {
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }  
+}
+
+/* Adapta el flex de la part del mig del footer a un flexbox en columna */
+@media(max-width: 750px) {
+    .footer-mig{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    } 
+}
